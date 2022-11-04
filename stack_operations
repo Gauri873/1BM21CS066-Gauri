@@ -29,7 +29,7 @@ void display(){
     }
     else{
         for(i=0; i<=top; i++){
-            printf("\n%d\n",st[i]);
+            printf("%d\n",st[i]);
         }
     }
 }
