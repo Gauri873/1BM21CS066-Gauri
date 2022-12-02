@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define Qsize 5
+void insert(int q[], int item, int *rear){
+    if (*rear==(Qsize-1)){
+        printf("Overflow");
+    }
+    else{
+        (*rear)++;
+        q[*rear]=item;
+        //printf(item)
+    }
+}
+int delete(int q[], int *front, int *rear){
+    if ((*rear)<(*front)){
+        printf("Underflow");
+    }
+    else{
+        return q[(*front)++];
+    }
+}
+void display(int q[],int *front,int *rear){
+    int i;
+    if (*front>*rear){
+        printf("Queue is empty\n");
+    }
+    else{
+        for(i=*front;i<=*rear;i++){
+            printf("%d\n",q[i]);
+        }
+    }
+}
+void main(){
+    int rear=-1, front=0, item, q[Qsize];
+    while(1)
+    {
+        int x;
+        printf("following operations can be done:\n");
+        printf("1 for inserting\n 2 for deleting\n 3 for display\n");
+        scanf("%d",&x);
+        switch(x){
+            case 1:
+            printf("\nEnter value to be inserted: \n");
+            scanf("%d",&item);
+            insert(q,item,&rear);
+            break;
+            case 2:
+            delete(q,&front,&rear);
+            break;
+            case 3:
+            display(q,&front,&rear);
+            break;
+            default:exit(0);
+        }
+    }
+}
